@@ -1,0 +1,151 @@
+object FormMain: TFormMain
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  Position = MainFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object LayoutImage: TLayout
+    Align = Client
+    HitTest = True
+    Size.Width = 424.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    OnDragOver = ImageSourceDragOver
+    OnDragDrop = ImageSourceDragDrop
+    object LabelImageTitle: TLabel
+      Align = Top
+      Size.Width = 424.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      Text = #20803#30011#20687
+    end
+    object ImageSource: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Client
+      HitTest = False
+      Size.Width = 424.000000000000000000
+      Size.Height = 430.000000000000000000
+      Size.PlatformDefault = False
+      OnDragOver = ImageSourceDragOver
+      OnDragDrop = ImageSourceDragDrop
+    end
+    object LayoutImageBottom: TLayout
+      Align = Bottom
+      Position.Y = 455.000000000000000000
+      Size.Width = 424.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object LabelImageFile: TLabel
+        Align = Client
+        Size.Width = 344.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Trailing
+        Text = #30011#20687#12434#36984#25246#12375#12390#12367#12384#12373#12356#8594
+      end
+      object Button1: TButton
+        Action = ActionImageSelect
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 344.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+    end
+  end
+  object LayoutSettings: TLayout
+    Align = Right
+    Position.X = 440.000000000000000000
+    Size.Width = 200.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object LabelSettings: TLabel
+      Align = Top
+      Size.Width = 200.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      Text = #20316#25104#12377#12427#12450#12452#12467#12531
+    end
+    object MemoSettings: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      Align = Client
+      Size.Width = 200.000000000000000000
+      Size.Height = 391.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Viewport.Width = 196.000000000000000000
+      Viewport.Height = 387.000000000000000000
+    end
+    object ButtonSettings: TButton
+      Action = ActionSettings
+      Align = Bottom
+      Enabled = True
+      ImageIndex = -1
+      Position.Y = 416.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+    end
+    object ButtonCreateImage: TButton
+      Action = ActionImageCreate
+      Align = Bottom
+      Enabled = True
+      ImageIndex = -1
+      Position.Y = 448.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+    end
+  end
+  object Splitter1: TSplitter
+    Align = Right
+    Cursor = crHSplit
+    MinSize = 20.000000000000000000
+    Position.X = 424.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object OpenDialogPng: TOpenDialog
+    DefaultExt = '.PNG'
+    Filter = 'PNG'#12501#12449#12452#12523'|*.PNG|'#12377#12409#12390#12398#12501#12449#12452#12523'(*.*)|*.*'
+    Options = [ofHideReadOnly, ofFileMustExist, ofEnableSizing]
+    Left = 312
+    Top = 232
+  end
+  object ActionList1: TActionList
+    Left = 312
+    Top = 168
+    object ActionSettings: TAction
+      Text = #35373#23450
+      OnExecute = ActionSettingsExecute
+      OnUpdate = ActionSettingsUpdate
+    end
+    object ActionImageSelect: TAction
+      Text = #21442#29031
+      OnExecute = ActionImageSelectExecute
+    end
+    object ActionImageCreate: TAction
+      Text = #12450#12452#12467#12531#20316#25104
+      OnExecute = ActionImageCreateExecute
+      OnUpdate = ActionImageCreateUpdate
+    end
+  end
+end
